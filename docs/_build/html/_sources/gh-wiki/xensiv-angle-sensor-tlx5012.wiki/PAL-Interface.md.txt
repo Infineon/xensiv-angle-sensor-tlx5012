@@ -1,0 +1,44 @@
+The interaction with the hardware and platform resources is abstracted from the core library by the definition of a platform abstraction interface. 
+
+For this shield, the platform resources that need to be provided are:
+
+* **GPIO**. Digital input and output ports.
+* **Timer**. A timer for speed calculation related functionalities. 
+* **SPIC**. A SPI class interface related functionalities. 
+
+The PAL interfaces are implemented as C++ pure virtual classes.
+
+### GPIO PAL API
+
+* init()
+* deinit()
+* changeMode()
+* read()
+* write()
+* enable()
+* disable()
+
+Find the complete specification for each function of the GPIO PAL interface in the [PAL Interface](https://infineon.github.io/TLE5012-Magnetic-Angle-Sensor/d3/d5d/group__pal.html#d7/dde/classGPIO)
+ Doxygen docs section.
+### Timer PAL API
+
+* init()
+* deinit()
+* start()
+* elapsed()
+* stop()
+* delay()
+* delayMilli()
+* delayMicro()
+
+Find the complete specification for each function of the Timer PAL interface in the [PAL Interface](https://infineon.github.io/TLE5012-Magnetic-Angle-Sensor/d3/d5d/group__pal.html#dc/dea/classTimer) Doxygen docs section.
+
+### SPIC PAL API
+
+* init()
+* deinit()
+* triggerUpdate()
+* sendReceive()
+
+Find the complete specification for each function of the SPI interface in the [PAL Interface](https://infineon.github.io/TLE5012-Magnetic-Angle-Sensor/d3/d5d/group__pal.html#d7/db9/classSPIC) Doxygen docs section.
+

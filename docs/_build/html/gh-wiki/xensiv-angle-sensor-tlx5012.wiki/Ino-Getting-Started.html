@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; XENSIV TLx5012B Angle Sensor 2024 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=6fefd858"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/js/versionwarning.js?v=d4224a34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            XENSIV TLx5012B Angle Sensor
+              <img src="../../_static/ifx_logo_white_green_s.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Overview</a></li>
+<li><a class="reference internal" href="#required-experience">Required experience</a></li>
+<li><a class="reference internal" href="#required-hardware">Required Hardware</a></li>
+<li><a class="reference internal" href="#required-software">Required Software</a></li>
+<li><a class="reference internal" href="#tutorial">Tutorial</a><ul>
+<li><a class="reference internal" href="#software-installation">Software Installation</a></li>
+<li><a class="reference internal" href="#hardware-setup">Hardware Setup</a></li>
+<li><a class="reference internal" href="#ready-to-go">Ready To Go!</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XENSIV TLx5012B Angle Sensor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/gh-wiki/xensiv-angle-sensor-tlx5012.wiki/Ino-Getting-Started.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p>In this quick tutorial we will go through the installation for the Arduino IDE.</p>
+</section>
+<section id="required-experience">
+<h1>Required experience<a class="headerlink" href="#required-experience" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Experience level: beginner</p></li>
+<li><p>Basic computer user level</p></li>
+<li><p>Basic programming skills (C/C++)</p></li>
+<li><p>Basic soldering skills (recommended)</p></li>
+</ul>
+</section>
+<section id="required-hardware">
+<h1>Required Hardware<a class="headerlink" href="#required-hardware" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Picture</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TLE5012 Sens2Go kit</p></td>
+<td><p><img src="https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE5012B_horizontal.png" style="max-width:100%;" width="100"></p></td>
+</tr>
+<tr class="row-odd"><td><p>a Magnet</p></td>
+<td><p><img src="img/TLx5012B-Exxxx_Button.jpg_109742856.jpg" width="50"></p></td>
+</tr>
+<tr class="row-even"><td><p>Micro-USB to USB A cable</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="required-software">
+<h1>Required Software<a class="headerlink" href="#required-software" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.segger.com/downloads/jlink">Segger J-Link</a> either for Windows or Linux</p></li>
+<li><p><a class="reference external" href="https://www.arduino.cc/en/main/software">Arduino IDE</a> either for Windows or Linux</p></li>
+<li><p>XMC-for-Arduino (Installed with Arduino IDE)</p></li>
+<li><p>this library (Installed with Arduino IDE, v2.0.0 or higher)</p></li>
+</ul>
+</section>
+<section id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading"></a></h1>
+<section id="software-installation">
+<h2>Software Installation<a class="headerlink" href="#software-installation" title="Link to this heading"></a></h2>
+<ol class="arabic simple" start="0">
+<li><p><strong>Install Arduino IDE</strong>. If you are new to Arduino, please <a class="reference external" href="https://www.arduino.cc/en/Main/Software">download</a> the program and install it first.</p></li>
+<li><p><strong>Install XMC Board</strong>. The official Arduino boards are already available in the Arduino software, but other third party boards as the Infineon XMC MCU based need to be explicitly included. Follow the instructions in the <a class="reference external" href="https://github.com/Infineon/XMC-for-Arduino#installation-instructions">link</a> to add the XMC board family to Arduino.</p></li>
+<li><p><strong>Install the library</strong>. In the Arduino IDE, go to the menu <em>Sketch &gt; Include library &gt; Library Manager</em>. Type <strong>TLE5012</strong> and install the library.</p></li>
+</ol>
+  <img src="img/ard-library-manager.png" width="500">
+<ol class="arabic simple" start="3">
+<li><p><strong>additional</strong> install additionally the Segger J-Link if you use an Infineon Sens2Go Kit.</p></li>
+</ol>
+</section>
+<section id="hardware-setup">
+<h2>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Link to this heading"></a></h2>
+<p>The TLE5012 Sens2Go kit does not need any further setup, simply connect it to the computer with the USB cable, select an example Sketch and run this.</p>
+</section>
+<section id="ready-to-go">
+<h2>Ready To Go!<a class="headerlink" href="#ready-to-go" title="Link to this heading"></a></h2>
+<p>With everything ready, now we are going to upload and run one of the library examples.</p>
+<ol class="arabic">
+<li><p><strong>Example sensorType</strong></p>
+<p>Take the <em>sensorType</em> example to check which variant of the TLE5012B you have. Fetch it from the *File -&gt; Example -&gt; TLE5012B -&gt; Read_Sensor_Type’ menu, connect everything and
+compile the example.
+Open the terminal from the IDE it will soon prompt the <em>TLE5012B</em> ready message and prints out the the register settings, the type of
+Sensor and interface and the setting of the main registers in words.
+Take this example to check your TLE5012 sensors if you have more than one with different interfaces.</p>
+</li>
+<li><p><strong>Example with some data output, testSensorMainValues</strong>.</p>
+<p>Take this example to generate a constant looping output of several values from the sensor like, angle, the angle speed, the number of revolutions and
+temperature of the sensor. Take a magnet and turn it in front of the sensor and look at the changes of the values.</p>
+</li>
+<li><p><strong>Have some fun with the sensor, try out the processing games</strong></p>
+<p>Under the processing directory, you can find several small games written in the language of processing (<a class="reference external" href="https://processing.org/">Processing</a>). Each of this games needs
+either the <em>readAngleValueProcessing</em> or the <em>readSpeedProcessing</em> example. Play the games by using the magnet in front of the sensor.</p>
+<p>If use the <em>readAngleValueProcessing</em> with the Arduino IDE console, than you get a fast angle value output (Set the baud rate of the console to 1000000).</p>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Infineon Technologies AG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #0A8276;
+    }
+    /* Sidebar */
+    .wy-nav-side {
+      background: #0A8276;
+    }
+
+    /* span.caption-text {
+      color: white;
+    } */
+
+    .wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: white;
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    padding: 0 1.618em;
+    margin: 12px 0 0 0;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 85%;
+    white-space: nowrap;
+    }
+
+    /*
+    .wy-side-nav-search>a, .wy-side-nav-search .wy-dropdown>a {
+    color: #3a7ca8;
+    font-size: 100%;
+    font-weight: bold;
+    display: inline-block;
+    padding: 4px 6px;
+    margin-bottom: .809em;
+    }
+    */
+    
+    .wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: white;
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    padding: 0 1.618em;
+    margin: 12px 0 0 0;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 85%;
+    white-space: nowrap;
+    }
+
+    .rst-versions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    color: #fcfcfc;
+    background: #6CB4AD;
+    font-family: "Lato","proxima-nova", "Helvetica Neue", Arial,sans-serif;
+    z-index: 400;
+    justify-content: stretch;
+    }
+
+  </style>
+
+
+</body>
+</html>

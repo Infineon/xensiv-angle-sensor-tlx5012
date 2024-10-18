@@ -1,0 +1,363 @@
+name: Arduino CI
+
+# on which event should we start push, pull request or schedule dispatches
+on:
+  - push
+  - pull_request
+
+# This template runes multiple workflows
+jobs:
+
+
+
+  #############################################################################
+  # This action sets common variables for the flow and
+  # identifies the examples to compile
+  setup:
+
+    # we run this on self hosted runner, use labels to be more specific
+    # add specific names if there are some, otherwise self-hosted, X64, Linux are the default ones
+    runs-on:
+      - self-hosted
+      - X64
+      - Linux
+
+    steps:
+      # checkout the latest github action code
+      - name: Checkout actions
+        uses: actions/checkout@v4
+
+      # checkout the latest arduino-cli compiler
+      - name: Setup Arduino CLI
+        uses: arduino/setup-arduino-cli@master
+
+      # Update the arduino code. Attention this does not setup XMC packages as this are set inside the self hosted runner
+      # the arduino board support packages can be updated automatically
+      # the XMC board support package is only linked inside the self hosted runner, which allows
+      # to use none official and beta versions
+      - name: Install/Update Arduino Platform
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install "arduino:avr"
+          arduino-cli core install "infineon:xmc"
+
+      # Fetch variables and move them to the GITHUB_OUTPUT and fetch HIL information
+      - id: startup
+        run: |
+          # set the project name
+          export $(xfp-dev arduino workspace-setup project-name)
+          echo "project=$PROJECTNAME" >> $GITHUB_OUTPUT
+
+          # set the examples
+          declare -a data
+          cd $GITHUB_WORKSPACE/src/framework/arduino/
+          for x in examples/*;
+          do 
+            data+=($x);
+          done;
+          export examples=$(jq --compact-output --null-input '$ARGS.positional' --args -- "${data[@]}")
+          echo examples="$examples" >> $GITHUB_OUTPUT
+
+          # set the serials
+          cd /opt/runner_support/
+          REPO="$(basename "$GITHUB_REPOSITORY")"
+
+          serials=$(echo $(./py_checkusb.py --repo ${REPO} --list serial --json) | jq ".\"${REPO}\"" --compact-output )
+          echo "serials=${serials}"  >> $GITHUB_OUTPUT
+
+          # set the xfp
+          xfp=$(./py_checkusb.py --readyaml $GITHUB_WORKSPACE/.github/fqbn.yml --json)
+          echo "xfp=${xfp}" >> $GITHUB_OUTPUT
+
+          # switch on the HIL
+          ./py_checkusb.py --switch repo --namelist $REPO --onoff on
+
+
+    # Connect the GITHUB_OUTPUT to the variables and the workflow output mechanism
+    outputs:
+      project: ${{ steps.startup.outputs.project }}
+      serials: ${{ steps.startup.outputs.serials }}
+      examples: ${{ steps.startup.outputs.examples }}
+      xfp: ${{ steps.startup.outputs.xfp }}
+
+  #############################################################################
+  # The build job compiles the sample code for different boards
+  build-ard:
+
+    # wait on first setup run before starting main function
+    needs: setup
+
+    # we run this on self hosted runner, use labels to be more specific
+    # add specific names if there are some, otherwise self-hosted, X64, Linux are the default ones
+    runs-on:
+      - self-hosted
+      - X64
+      - Linux
+
+    # which combination of sample code and boards should run
+    # for this example of 2 sample codes and 3 boards a total of 2x3=6 runners have to work.
+    # if we have only 4 runner then these 4 are started and the last 2 are waiting until they can start
+    strategy:
+
+      matrix:
+        # List of all examples in the lib to compile
+        example: ${{ fromJson(needs.setup.outputs.examples) }}
+
+    # These are the steps which should run for each combination of fqbn and example code
+    steps:
+      # checkout the latest github action code
+      - name: Checkout actions
+        uses: actions/checkout@v4
+
+      # checkout the latest arduino-cli compiler
+      - name: Setup Arduino CLI
+        uses: arduino/setup-arduino-cli@master
+
+      # prepare the runner for the repo data
+      # setup links inside the self hosted runner for correct directory setup
+      # REPO is the base name of the library which is linked to the right directory structure
+      # check wether the .arduino15 packages dir is available
+      # ln -sf $GITHUB_WORKSPACE/$REPO/build/ $HOME/Arduino/libraries/$REPO
+      - name: Generate Arduino Library
+        run: |
+          ln -sfn /opt/XMC-for-Arduino $HOME/.arduino15/packages/Infineon
+          mkdir -p "$HOME/Arduino/libraries"
+          cd $GITHUB_WORKSPACE/
+          xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
+
+      # Compile the sample code for the selected board and board support package with the arduino compiler
+      # ln -sf $GITHUB_WORKSPACE/ $HOME/Arduino/libraries/$REPO
+      - name: Compile
+        run: |
+          echo $HOME 
+          export TMPDIR=$HOME/tmp
+          mkdir -p $TMPDIR
+          cd $HOME/Arduino/libraries/${{ needs.setup.outputs.project }}
+          xfp=${{ toJson(needs.setup.outputs.xfp) }}
+          export fqbn=$(echo ${xfp} | jq ".\"ard\".\"fqbn\"" -r --compact-output )
+          arduino-cli compile \
+                ${fqbn} \
+                --libraries="." \
+                --libraries="$HOME/Arduino/libraries/." \
+                --verbose \
+                 ${{ matrix.example }}
+
+
+  #############################################################################
+  # The build job compiles the sample code for different boards
+  build-plt:
+
+    # wait on first setup run before starting main function
+    needs: setup
+
+    # we run this on self hosted runner, use labels to be more specific
+    # add specific names if there are some, otherwise self-hosted, X64, Linux are the default ones
+    runs-on:
+      - self-hosted
+      - X64
+      - Linux
+
+    # which combination of sample code and boards should run
+    # for this example of 2 sample codes and 3 boards a total of 2x3=6 runners have to work.
+    # if we have only 4 runner then these 4 are started and the last 2 are waiting until they can start
+    strategy:
+
+      matrix:
+        # List of all examples in the lib to compile
+        example: ${{ fromJson(needs.setup.outputs.examples) }}
+
+    steps:
+      # checkout the latest github action code
+      - name: Checkout actions
+        uses: actions/checkout@v4
+
+      # checkout the latest arduino-cli compiler
+      - name: Setup Arduino CLI
+        uses: arduino/setup-arduino-cli@master
+
+      # prepare the runner for the repo data
+      # setup links inside the self hosted runner for correct directory setup
+      # REPO is the base name of the library which is linked to the right directory structure
+      # check wether the .arduino15 packages dir is available
+      # export REPO=${{ needs.setup.outputs.repo }}
+      # ln -sf $GITHUB_WORKSPACE/$REPO/build/ $HOME/Arduino/libraries/$REPO
+      - name: Set and check environment, install repos
+        run: |
+          ln -sfn /opt/XMC-for-Arduino $HOME/.arduino15/packages/Infineon
+          mkdir -p "$HOME/Arduino/libraries"
+          cd $GITHUB_WORKSPACE/
+          xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
+
+      - name: Install PlatformIO
+        run: |
+          python -m pip install --upgrade pip
+          pip install --upgrade platformio
+          platformio platform install -f infineonxmc
+          platformio platform install -f atmelavr
+
+      # PlatformIO uses python for compiling and it does multiple board compiles
+      # at once. PlatformIO is used here to check compatibility, but is not needed for the the flash step
+      - name: Run PlatformIO
+        run: |
+          cd $HOME/Arduino/libraries/${{ needs.setup.outputs.project }}
+          xfp=${{ toJson(needs.setup.outputs.xfp) }}
+          export boards=$(echo ${xfp} | jq ".\"pio\".\"boards\"" -r --compact-output )
+          export options=$(echo ${xfp} | jq ".\"pio\".\"options\"" -r --compact-output )
+          pio \
+                ci \
+                --lib="." \
+                ${boards} \
+                ${options}
+        env:
+          PLATFORMIO_CI_SRC: ${{ matrix.example }}
+
+
+
+  #############################################################################
+  # This step allows HIL (Hardware in the loop), therefore
+  # is searches for the given board/sensor combination and tries to find the actual port
+  # on the self hosted runner. (see documentation for the board2port finder)
+  flash:
+
+    # We need a successful build before we can run the deploy
+    needs: [setup, build-ard]
+    
+    # we run this on self hosted runner, use labels to be more specific
+    # add specific names if there are some, otherwise self-hosted, X64, Linux are the default ones
+    runs-on:
+      - self-hosted
+      - X64
+      - Linux
+
+    # do not stop if a single job fails
+    continue-on-error: true
+
+    strategy:
+
+      # the code to flash
+      matrix:
+        # the serials of the hardware boards
+        serials: ${{ fromJson(needs.setup.outputs.serials) }}
+
+    # These are the steps which should run for each combination of fqbn and example code
+    steps:
+      - name: Environment
+        run: |
+          cd /opt/runner_support/
+
+          REPO="$(basename "$GITHUB_REPOSITORY")"
+          PROJECT=${{ needs.setup.outputs.project }}
+          SERIALID=${{ matrix.serials }}
+          xfp=${{ toJson(needs.setup.outputs.xfp) }}
+
+          PORT=$(     echo $(./py_checkusb.py --serial ${SERIALID} --list comport --json) | jq ".\"${SERIALID}\"" -r)
+          TYPE=$(     echo $(./py_checkusb.py --serial ${SERIALID} --list type --json)    | jq ".\"${SERIALID}\"|.[0]" -r)
+          DEVTYPE=$(  echo $(./py_checkusb.py --serial ${SERIALID} --list devtype --json) | jq ".\"${SERIALID}\"|.[0]" -r)
+          DEVICE=$(   echo $(./py_checkusb.py --serial ${SERIALID} --list device  --json) | jq ".\"${SERIALID}\"|.[0]" -r)
+          FQBN=`tr '.' ':' <<<"${DEVICE}"`
+
+          echo "repo=$REPO" >> $GITHUB_ENV
+          echo "project=$PROJECT" >> $GITHUB_ENV
+          echo "serials=$SERIALID" >> $GITHUB_ENV
+          echo "port=$PORT" >> $GITHUB_ENV
+          echo "type=$TYPE" >> $GITHUB_ENV
+          echo "devtype=$DEVTYPE" >> $GITHUB_ENV
+          echo "fqbn=$FQBN" >> $GITHUB_ENV
+          echo "device=$DEVICE" >> $GITHUB_ENV
+          echo "example="$(echo ${xfp} | jq ".\"hil\".\"example\"" -r --compact-output ) >> $GITHUB_ENV
+          echo "baud="$(echo ${xfp} | jq ".\"hil\".\"baud\"" -r --compact-output ) >> $GITHUB_ENV
+
+          echo "Repository name:     " $REPO
+          echo "Project name:        " $PROJECT
+          echo "Device Serial ID:    " $SERIALID
+          echo "Port found:          " $PORT
+          echo "Type:                " $TYPE
+          echo "Device Type:         " $DEVTYPE
+          echo "FQBN:                " $FQBN
+          echo "Device:              " $DEVICE
+          echo "Example:             " $(echo ${xfp} | jq ".\"hil\".\"example\"" -r --compact-output )
+          echo "Baud example:        " $(echo ${xfp} | jq ".\"hil\".\"baud\"" -r --compact-output )
+
+      # Compile the code which we want to flash
+      # REPO: the name of the repository which is also the link name
+      # check/set the arduino15 package library
+      # link the repo to the correct place for compiling under arduino-cli
+      # compile the code with the arduino-cli and export the binary files for flashing
+      # ln -sf $GITHUB_WORKSPACE/ $HOME/Arduino/libraries/$REPO
+      - name: Compile Sketch
+        run: |
+          export TMPDIR=$HOME/tmp
+          mkdir -p $TMPDIR
+          ln -sfn /opt/XMC-for-Arduino $HOME/.arduino15/packages/Infineon
+          mkdir -p "$HOME/Arduino/libraries"
+          cd $HOME/Arduino/libraries/${{ env.project }}
+          arduino-cli compile --clean --log --warnings all \
+                              --fqbn ${{ env.fqbn }} \
+                              --libraries="." \
+                              --libraries="$HOME/Arduino/libraries/." \
+                              --export-binaries \
+                              ${{ env.example }}
+
+        # Flashes the compiled HEX file onto the selected MCU
+        # REPO: the name of the repository which is also the link name
+        # HEXNAME: the board depended name of the HEX files
+        # SERIALID: the unique serial number of the hardware board according the board2port.yaml
+        # DEVICE: the flashing device according the board2port.yaml
+        # PORT: real PORT name of the attached hardware based on the SERIALID
+        # use the python based XMC flasher
+      - name: Flash
+        run: |
+          cd $HOME
+          python $HOME/.arduino15/packages/Infineon/hardware/xmc/3.2.0/tools/xmc-flasher.py \
+                            upload \
+                            -d ${{ env.devtype }} \
+                            -p ${{ env.port }} \
+                            -f $HOME/Arduino/libraries/${{ env.project }}/${{ env.example }}/build/${{ env.device }}/*.hex
+
+
+      # Monitoring the serial output from the attached and flashed hardware and collecting
+      # ERROR, Warning and statistical data for reporting
+      - name: Monitor
+        run: |
+          if [ "${{ env.port }}" != 'null' ]; then
+            echo "need to monitor"
+            timeout 1m /opt/runner_support/py_console.py \
+                          --port ${{ env.port }} \
+                          --baud ${{ env.baud }} \
+                          --runtime 20 \
+                          --report ~/Arduino/libraries/${{ env.project }}/${{ env.example }}/build/${{ env.device }}/report.json
+          else
+            echo "No port found"
+          fi
+
+      # Upload the compiled HEX files to the GitHub server
+      - name: Artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.type }}_${{ env.serials }}
+          path: ~/Arduino/libraries/${{ env.project }}/${{ env.example }}/build/${{ env.device }}/*
+          if-no-files-found: ignore
+
+
+  #############################################################################
+  # Switch off the HIL after all tests are done
+  post:
+
+    # we run this no matter if before fails
+    if: always()
+    # wait on first setup run before starting main function
+    needs: [setup, flash]
+
+    # we run this on self hosted runner, use labels to be more specific
+    # add specific names if there are some, otherwise self-hosted, X64, Linux are the default ones
+    runs-on:
+      - self-hosted
+      - X64
+      - Linux
+
+    steps:
+      - name: Switch off HIL
+        run: |
+          cd /opt/runner_support/
+          REPO="$(basename "$GITHUB_REPOSITORY")"
+          ./py_checkusb.py --switch repo --namelist $REPO --onoff off

@@ -1,0 +1,79 @@
+### Overview
+
+In this quick tutorial we will explain how to use the TLE5012B shield together with the Cypress WICED SDK, compile the provided example, and execute it.
+
+### Required Hardware
+
+Name         | Picture |
+---          |---      |
+[CYW943907AEVAL1F Evaluation Kit](https://www.cypress.com/documentation/development-kitsboards/cyw943907aeval1f-evaluation-kit) |<img src="img/CYW943907AEVAL1F-eval-kit.jpg" height="80px"> |
+TLE5012B |<img src="img/TLE5012B_breakout.png" style="max-width:100%;" width="100"> <img src="img/TLE_5012B_DSO-8-16_plain.jpg" style="max-width:100%;" width="75"> |
+a Magnet |<img src="img/TLx5012B-Exxxx_Button.jpg_109742856.jpg" width="50"> |
+Micro-USB to USB A cable | use the cable included into the CYW943907AEVAL1F Evaluation Kit
+
+### Required Software
+
+* [WICED Studio](https://community.cypress.com/community/software-forums/wiced-wifi/wiced-wifi-documentation)
+* [TLE5012B](https://github.com/Infineon/TLE5012-Magnetic-Angle-Sensor) (v3.0.0 or higher)
+* for Windows: [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) Serial Terminal 
+* for Linux: [miniCom](https://help.ubuntu.com/community/Minicom)
+* this library (Installed with WICED SDK)
+
+### Tutorial
+
+#### Software Installation
+
+0. **install WICED Studio**. Download the software and follow the instructions in the following [website](https://community.cypress.com/community/software-forums/wiced-wifi/wiced-wifi-documentation). Registration is required.
+
+1. **for Windows install PuTTY**. Downloadable from the official [website](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) or use an other
+sufficient terminal under your system.
+
+2. **for Linux install miniCom**. Use your system installer (apt, apt-get, pkcon, zypper or similar). You can also use any other
+similar software.
+
+3. **install the TLE5012B library**. Follow the steps in the [WICED Lib Installation](CW-Lib-Installation) section. 
+
+
+#### Hardware Setup
+
+The TLE5012B needs to be connected to the mcu, so see into [TLE5012B manual](https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b) for the chip pin layout. Alternatively you can also use a breakout board from a Sens2go kit. 
+Then, simply connect it to the computer with the USB cable. If you are using the Cypress 43xxx boards.
+See also the [trouble shooting guide](CW-Troubleshooting-Guide).
+
+
+#### Ready To Go!
+
+With the hardware connected, the software installed, and the several [bugs fixing](CW-Troubleshooting-Guide) changes made to the SDK, the example can be finally built and run:
+
+1. **Example sensorType**
+
+   Open the ifx example (*apps/ifx/TLE5012B/sensorType*).
+
+2. **Terminal output**
+
+   Open the PuTTY serial terminal with 115200 baud, 8-N-1, and the appropriate COM port (or *tty* device).
+
+   <img src="img/putty-conf.png" height="380px">
+
+   You will get the bit setting of all of the sensor registers, the default interface type and the setting of some main
+   DSP registers. This information is important if you want to know in which range your TLE5012B sensor is working at best.
+   This programm will only fetch a senseful output if a magnetic field is near the sensor. Otherwise the *checkerror* is
+   set and no output will be generated.
+
+3. **WICED make target**
+
+   Create target *"ifx.TLE5012B.sensorType-CYW943907AEVAL1F download run"* and click on it. 
+
+   <img src="img/make-target.png" height="300px">
+
+   The terminal will soon prompt the *TLE5012B* ready message and prints out the next operation on the motor.
+   If everything is connected, the motor should run up and down, forward and backward (if capable of).
+
+4. **Example readAngleValueProcessing**
+
+   Open the ifx example (*apps/ifx/TLE5012B/readAngleValueProcessing*) and run it. It will constantly readout the angle value.
+   If you know use you magnet in front of the sensor and turn it, you can see how the value are changing.
+
+
+
+

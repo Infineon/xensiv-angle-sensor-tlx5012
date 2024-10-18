@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; XENSIV TLx5012B Angle Sensor 2024 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=6fefd858"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/js/versionwarning.js?v=d4224a34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            XENSIV TLx5012B Angle Sensor
+              <img src="../../_static/ifx_logo_white_green_s.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XENSIV TLx5012B Angle Sensor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/gh-wiki/xensiv-angle-sensor-tlx5012.wiki/TLE5012B-REG-API.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>These are the TLE5012B register functions for each and any register setting. Depending if the the register is read only or
+read and write, only read or get and set functions are available for a register. The functions are only working with the
+SSC interface, however some functions address registers which have multiple meanings depending on the preset interface.
+Please read the <a class="reference external" href="https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b">TLE5012B manual</a>
+to correctly interpret the settings.</p>
+<ul class="simple">
+<li><p>Code()</p></li>
+<li><p>Communication()</p></li>
+<li><p>Interface()</p></li>
+<li><p>Mode()</p></li>
+<li><p>Modulation()</p></li>
+<li><p>Reg()</p></li>
+<li><p>activateFirmwareReset()</p></li>
+<li><p>cycle()</p></li>
+<li><p>directionClockwise()</p></li>
+<li><p>directionConterClockwise()</p></li>
+<li><p>disableADCCheck()</p></li>
+<li><p>disableADCTestVector()</p></li>
+<li><p>disableDSPUbist()</p></li>
+<li><p>disableDSPUoverflow()</p></li>
+<li><p>disableFilterInverted()</p></li>
+<li><p>disableFilterParallel()</p></li>
+<li><p>disableFuseCRC()</p></li>
+<li><p>disableGMRCheck()</p></li>
+<li><p>disablePrediction()</p></li>
+<li><p>disableSpikeFilter()</p></li>
+<li><p>disableStartupBist()</p></li>
+<li><p>disableVoltageCheck()</p></li>
+<li><p>disableWatchdog()</p></li>
+<li><p>disableXYCheck()</p></li>
+<li><p>enableADCCheck()</p></li>
+<li><p>enableADCTestVector()</p></li>
+<li><p>enableDSPUbist()</p></li>
+<li><p>enableDSPUoverflow()</p></li>
+<li><p>enableFilterInverted()</p></li>
+<li><p>enableFilterParallel()</p></li>
+<li><p>enableFuseCRC()</p></li>
+<li><p>enableGMRCheck()</p></li>
+<li><p>enableIFABOpenDrain()</p></li>
+<li><p>enableIFABPushPull()</p></li>
+<li><p>enablePrediction()</p></li>
+<li><p>enableSSCOpenDrain()</p></li>
+<li><p>enableSSCPushPull()</p></li>
+<li><p>enableSpikeFilter()</p></li>
+<li><p>enableStartupBist()</p></li>
+<li><p>enableVoltageCheck()</p></li>
+<li><p>enableWatchdog()</p></li>
+<li><p>enableXYCheck()</p></li>
+<li><p>getADCx()</p></li>
+<li><p>getADCy()</p></li>
+<li><p>getAmplitudeSynch()</p></li>
+<li><p>getAngleBase()</p></li>
+<li><p>getAngleRange()</p></li>
+<li><p>getAngleValue()</p></li>
+<li><p>getCRCpar()</p></li>
+<li><p>getCalibrationMode()</p></li>
+<li><p>getCounterIncrements()</p></li>
+<li><p>getFIRUpdateRate()</p></li>
+<li><p>getFilterDecimation()</p></li>
+<li><p>getFrameCounter()</p></li>
+<li><p>getFrameSyncCounter()</p></li>
+<li><p>getFulseReload()</p></li>
+<li><p>getHSMplp()</p></li>
+<li><p>getHysteresisMode()</p></li>
+<li><p>getIFABres()</p></li>
+<li><p>getIIFMod()</p></li>
+<li><p>getInterfaceMode()</p></li>
+<li><p>getNumberOfRevolutions()</p></li>
+<li><p>getOffsetTemperatureX()</p></li>
+<li><p>getOffsetTemperatureY()</p></li>
+<li><p>getOffsetX()</p></li>
+<li><p>getOffsetY()</p></li>
+<li><p>getOrthogonality()</p></li>
+<li><p>getPadDriver()</p></li>
+<li><p>getSlaveNumber()</p></li>
+<li><p>getSpeedValue()</p></li>
+<li><p>getT25Offset()</p></li>
+<li><p>getTemperatureRAW()</p></li>
+<li><p>getTemperatureValue()</p></li>
+<li><p>getTestVectorX()</p></li>
+<li><p>getTestVectorY()</p></li>
+<li><p>getVectorMagnitude()</p></li>
+<li><p>holdDSPU()</p></li>
+<li><p>isADCCheck()</p></li>
+<li><p>isADCTestVector()</p></li>
+<li><p>isActivationReset()</p></li>
+<li><p>isAngleDirection()</p></li>
+<li><p>isAngleValueNew()</p></li>
+<li><p>isDSPUbist()</p></li>
+<li><p>isDSPUhold()</p></li>
+<li><p>isDSPUoverflow()</p></li>
+<li><p>isFilterInverted()</p></li>
+<li><p>isFilterParallel()</p></li>
+<li><p>isFirmwareReset()</p></li>
+<li><p>isFuseCRC()</p></li>
+<li><p>isGMRCheck()</p></li>
+<li><p>isIFABOutputMode()</p></li>
+<li><p>isNumberOfRevolutionsNew()</p></li>
+<li><p>isPrediction()</p></li>
+<li><p>isSSCOutputMode()</p></li>
+<li><p>isSpeedValueNew()</p></li>
+<li><p>isSpikeFilter()</p></li>
+<li><p>isStartupBist()</p></li>
+<li><p>isStatusADC()</p></li>
+<li><p>isStatusDSPU()</p></li>
+<li><p>isStatusFuse()</p></li>
+<li><p>isStatusGMRA()</p></li>
+<li><p>isStatusGMRXY()</p></li>
+<li><p>isStatusMagnitideOutOfLimit()</p></li>
+<li><p>isStatusOverflow()</p></li>
+<li><p>isStatusROM()</p></li>
+<li><p>isStatusRead()</p></li>
+<li><p>isStatusReset()</p></li>
+<li><p>isStatusVoltage()</p></li>
+<li><p>isStatusWatchDog()</p></li>
+<li><p>isStatusXYOutOfLimit()</p></li>
+<li><p>isTemperatureToggle()</p></li>
+<li><p>isVoltageCheck()</p></li>
+<li><p>isWatchdog()</p></li>
+<li><p>isXYCheck()</p></li>
+<li><p>releaseDSPU()</p></li>
+<li><p>setActivationReset()</p></li>
+<li><p>setAmplitudeSynch()</p></li>
+<li><p>setAngleBase()</p></li>
+<li><p>setAngleRange()</p></li>
+<li><p>setCRCpar()</p></li>
+<li><p>setCalibrationMode()</p></li>
+<li><p>setExternalClock()</p></li>
+<li><p>setFIRUpdateRate()</p></li>
+<li><p>setFilterDecimation()</p></li>
+<li><p>setFrameCounter()</p></li>
+<li><p>setFrameSyncCounter()</p></li>
+<li><p>setFuseReload()</p></li>
+<li><p>setHSMplp()</p></li>
+<li><p>setHysteresisMode()</p></li>
+<li><p>setIFABres()</p></li>
+<li><p>setIIFMod()</p></li>
+<li><p>setInterfaceMode()</p></li>
+<li><p>setInternalClock()</p></li>
+<li><p>setOffsetTemperatureX()</p></li>
+<li><p>setOffsetTemperatureY()</p></li>
+<li><p>setOffsetX()</p></li>
+<li><p>setOffsetY()</p></li>
+<li><p>setOrthogonality()</p></li>
+<li><p>setPadDriver()</p></li>
+<li><p>setSlaveNumber()</p></li>
+<li><p>setTestVectorX()</p></li>
+<li><p>setTestVectorY()</p></li>
+<li><p>statusClockSource()</p></li>
+</ul>
+<p>For a complete description of the functions and the rest of the library code structures in the see <a class="reference external" href="https://infineon.github.io/TLE5012-Magnetic-Angle-Sensor/d3e/group__tle5012reg.html">TLE5012B REG API</a></p>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Infineon Technologies AG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #0A8276;
+    }
+    /* Sidebar */
+    .wy-nav-side {
+      background: #0A8276;
+    }
+
+    /* span.caption-text {
+      color: white;
+    } */
+
+    .wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: white;
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    padding: 0 1.618em;
+    margin: 12px 0 0 0;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 85%;
+    white-space: nowrap;
+    }
+
+    /*
+    .wy-side-nav-search>a, .wy-side-nav-search .wy-dropdown>a {
+    color: #3a7ca8;
+    font-size: 100%;
+    font-weight: bold;
+    display: inline-block;
+    padding: 4px 6px;
+    margin-bottom: .809em;
+    }
+    */
+    
+    .wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: white;
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    padding: 0 1.618em;
+    margin: 12px 0 0 0;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 85%;
+    white-space: nowrap;
+    }
+
+    .rst-versions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    color: #fcfcfc;
+    background: #6CB4AD;
+    font-family: "Lato","proxima-nova", "Helvetica Neue", Arial,sans-serif;
+    z-index: 400;
+    justify-content: stretch;
+    }
+
+  </style>
+
+
+</body>
+</html>

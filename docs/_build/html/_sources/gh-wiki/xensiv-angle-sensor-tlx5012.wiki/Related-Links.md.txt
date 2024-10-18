@@ -1,0 +1,20 @@
+### Related Products
+* [XMC2Go](https://www.infineon.com/cms/en/product/evaluation-boards/kit_xmc_2go_xmc1100_v1/) 
+* [XMC1100 Boot Kit](https://www.infineon.com/cms/en/product/evaluation-boards/kit_xmc11_boot_001/#ispnTab1) 
+* [XMC4700 Relax Kit for 5V Shields](https://www.infineon.com/cms/en/product/evaluation-boards/kit_xmc47_relax_5v_ad_v1/) 
+* [Cypress CYW943907AEVAL1F Evaluation Kit](https://www.cypress.com/documentation/development-kitsboards/cyw943907aeval1f-evaluation-kit)
+* [Arduino Uno Rev3](https://store.arduino.cc/arduino-uno-rev3) 
+
+### Related Repositories
+ - [Infineon Github](https://github.com/Infineon)
+ - [XMC for Arduino](https://github.com/Infineon/XMC-for-Arduino)
+ - [Infineon XMC Platformio](https://github.com/Infineon/platformio-infineonxm)
+
+### Useful Links
+ - [Infineon for Makers](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/)
+ - [Infineon Magnetic Sensor Kits](https://www.infineon.com/cms/en/product/promopages/sensors-2go)
+ - [TLE5012B variants](https://www.infineon.com/cms/en/product/promopages/sensors-2go/#angle-sensor-2go)
+ - [TLE5012B manual](https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b)
+ - [TLE5012B example GUI](https://www.infineon.com/dgdl/Infineon-Software-Magnetic-Angle-Sensor-2Go-SW-v01_01-SW-v01_01-EN.zip?fileId=5546d462675a69720167799771c5519e)
+ - [Arduino](https://www.arduino.cc/)
+ - [PlatformIO](https://platformio.org/)

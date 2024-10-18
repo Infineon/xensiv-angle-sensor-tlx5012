@@ -1,0 +1,37 @@
+
+List of Arduino TLE5012B public API functions:
+
+## List of the basic TLE5012B public API functions:
+
+* Tle5012Ino()
+* begin()
+
+## List of the basic SPIC public API functions:
+
+* SPICIno
+* init()
+* deinit()
+* triggerUpdate()
+* sendReceive()
+
+## List of the basic SPI ino 3wire SSC public API functions:
+This class is needed as the SSC interface of the sensor uses MISO/MOSI as a push pull interface on one line.
+
+* SPIClass3W();
+* begin()
+* setCSPin()
+* sendReceiveSpi()
+
+## List of the basic GPIO public API functions:
+
+* GPIOIno();
+* init()
+* changeMode()
+* deinit()
+* read()
+* write()
+* enable()
+* disable()
+
+
+Find the complete documentation for each of the Arduino functions and and rest of the library code structures in the [Arduino API](https://infineon.github.io/TLE5012-Magnetic-Angle-Sensor/db/dfd/group__tle5012ino.html) Doxygen docs section.
