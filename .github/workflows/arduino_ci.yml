@@ -267,6 +267,7 @@ jobs:
           echo "device=$DEVICE" >> $GITHUB_ENV
           echo "example="$(echo ${xfp} | jq ".\"hil\".\"example\"" -r --compact-output ) >> $GITHUB_ENV
           echo "baud="$(echo ${xfp} | jq ".\"hil\".\"baud\"" -r --compact-output ) >> $GITHUB_ENV
+          echo "timeout="$(echo ${xfp} | jq ".\"hil\".\"timeout\"" -r --compact-output ) >> $GITHUB_ENV
 
           echo "Repository name:     " $REPO
           echo "Project name:        " $PROJECT
@@ -326,7 +327,7 @@ jobs:
             timeout 1m /opt/runner_support/py_console.py \
                           --port ${{ env.port }} \
                           --baud ${{ env.baud }} \
-                          --runtime 20 \
+                          --runtime ${{ env.timeout }} \
                           --report ~/Arduino/libraries/${{ env.project }}/${{ env.example }}/build/${{ env.device }}/report.json
           else
             echo "No port found"
