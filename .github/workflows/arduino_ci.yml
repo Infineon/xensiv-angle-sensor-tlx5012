@@ -119,7 +119,9 @@ jobs:
       # check wether the .arduino15 packages dir is available
       - name: Generate Arduino Library
         run: |
-          ln -sn /opt/XMC-for-Arduino/hardware $HOME/.arduino15/packages/Infineon
+          if [ ! -d "$HOME/.arduino15/packages/Infineon" ]; then
+            ln -sn /opt/XMC-for-Arduino/hardware $HOME/.arduino15/packages/Infineon
+          fi
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
           xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
@@ -180,7 +182,9 @@ jobs:
       # export REPO=${{ needs.setup.outputs.repo }}
       - name: Set and check environment, install repos
         run: |
-          ln -sn /opt/XMC-for-Arduino/hardware $HOME/.arduino15/packages/Infineon
+          if [ ! -d "$HOME/.arduino15/packages/Infineon" ]; then
+            ln -sn /opt/XMC-for-Arduino/hardware $HOME/.arduino15/packages/Infineon
+          fi
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
           xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
@@ -284,7 +288,9 @@ jobs:
         run: |
           export TMPDIR=$HOME/tmp
           mkdir -p $TMPDIR
-          ln -sn /opt/XMC-for-Arduino/hardware $HOME/.arduino15/packages/Infineon
+          if [ ! -d "$HOME/.arduino15/packages/Infineon" ]; then
+            ln -sn /opt/XMC-for-Arduino/hardware $HOME/.arduino15/packages/Infineon
+          fi
           mkdir -p "$HOME/Arduino/libraries"
           cd $HOME/Arduino/libraries/${{ env.project }}
           arduino-cli compile --clean --log --warnings all \
