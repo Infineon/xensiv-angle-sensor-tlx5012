@@ -123,7 +123,7 @@ jobs:
           version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
           echo "version=$version"
           rm -rf ~/.arduino15/packages/Infineon/hardware/xmc/*
-          ln -s /opt/XMC-for-Arduino/hardware/xnc/${version}/ ~/.arduino15/packages/Infineon/hardware/xnc/${version}
+          ln -s /opt/XMC-for-Arduino/hardware/xmc/${version}/ ~/.arduino15/packages/Infineon/hardware/xmc/${version}
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
           xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
