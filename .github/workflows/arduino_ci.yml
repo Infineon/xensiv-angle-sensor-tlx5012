@@ -280,6 +280,8 @@ jobs:
           echo "Device:              " $DEVICE
           echo "Example:             " $(echo ${xfp} | jq ".\"hil\".\"example\"" -r --compact-output )
           echo "Baud example:        " $(echo ${xfp} | jq ".\"hil\".\"baud\"" -r --compact-output )
+          echo "Timeout example:     " $(echo ${xfp} | jq ".\"hil\".\"timeout\"" -r --compact-output )
+          echo "Version:             " $(echo ${xfp} | jq ".\"hil\".\"version\"" -r --compact-output )
 
       # Compile the code which we want to flash
       # REPO: the name of the repository which is also the link name
@@ -290,8 +292,7 @@ jobs:
         run: |
           export TMPDIR=$HOME/tmp
           mkdir -p $TMPDIR
-          version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
-          rm  ~/.arduino15/packages/Infineon/hardware/xmc/*
+          rm  ~/.arduino15/packages/Infineon/hardware/*
           ln -s /opt/XMC-for-Arduino/hardware/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/${{ env.version }}
           mkdir -p "$HOME/Arduino/libraries"
           cd $HOME/Arduino/libraries/${{ env.project }}
@@ -312,7 +313,7 @@ jobs:
       - name: Flash
         run: |
           cd $HOME
-          python $HOME/.arduino15/packages/Infineon/hardware/xmc/${{ version }}/tools/xmc-flasher.py \
+          python $HOME/.arduino15/packages/Infineon/hardware/${{ version }}/tools/xmc-flasher.py \
                             upload \
                             -d ${{ env.devtype }} \
                             -p ${{ env.port }} \
