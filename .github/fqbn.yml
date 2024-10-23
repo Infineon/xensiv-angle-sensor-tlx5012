@@ -10,5 +10,5 @@ hil:
   example:      "examples/readAngleTest"
   baud:         9600
   timeout:      10
-  version:      latest
+  version:      xmc/latest
 
