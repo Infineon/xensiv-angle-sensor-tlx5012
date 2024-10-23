@@ -121,7 +121,6 @@ jobs:
       - name: Generate Arduino Library
         run: |
           version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
-          echo "version=$version"
           rm -rf ~/.arduino15/packages/Infineon/hardware/xmc/*
           ln -s /opt/XMC-for-Arduino/hardware/xmc/${version}/ ~/.arduino15/packages/Infineon/hardware/xmc/${version}
           mkdir -p "$HOME/Arduino/libraries"
