@@ -120,7 +120,7 @@ jobs:
       - name: Generate Arduino Library
         run: |
           version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
-          rm -f ~/.arduino15/packages/Infineon/hardware/*
+          rm -rf ~/.arduino15/packages/Infineon/hardware/*
           ln -s /opt/XMC-for-Arduino/hardware/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/${{ env.version }}
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
@@ -183,7 +183,7 @@ jobs:
       - name: Set and check environment, install repos
         run: |
           version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
-          rm -f ~/.arduino15/packages/Infineon/hardware/*
+          rm -rf ~/.arduino15/packages/Infineon/hardware/*
           ln -s /opt/XMC-for-Arduino/hardware/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/${{ env.version }}
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
@@ -292,7 +292,7 @@ jobs:
         run: |
           export TMPDIR=$HOME/tmp
           mkdir -p $TMPDIR
-          rm -f ~/.arduino15/packages/Infineon/hardware/*
+          rm -rf ~/.arduino15/packages/Infineon/hardware/*
           ln -s /opt/XMC-for-Arduino/hardware/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/${{ env.version }}
           mkdir -p "$HOME/Arduino/libraries"
           cd $HOME/Arduino/libraries/${{ env.project }}
