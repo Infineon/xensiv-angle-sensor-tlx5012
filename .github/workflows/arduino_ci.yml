@@ -121,7 +121,7 @@ jobs:
         run: |
           version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
           rm  ~/.arduino15/packages/Infineon/hardware/xmc/*
-          ln -s /opt/XMC-for-Arduino/hardware/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/${{ env.version }}
+          ln -s /opt/XMC-for-Arduino/hardware/xmc/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/xmc/${{ env.version }}
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
           xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
@@ -184,7 +184,7 @@ jobs:
         run: |
           version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
           rm  ~/.arduino15/packages/Infineon/hardware/xmc/*
-          ln -s /opt/XMC-for-Arduino/hardware/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/${{ env.version }}
+          ln -s /opt/XMC-for-Arduino/hardware/xmc/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/xmc/${{ env.version }}
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
           xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
