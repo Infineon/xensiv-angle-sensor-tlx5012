@@ -80,6 +80,7 @@ jobs:
       examples: ${{ steps.startup.outputs.examples }}
       xfp: ${{ steps.startup.outputs.xfp }}
 
+
   #############################################################################
   # The build job compiles the sample code for different boards
   build-ard:
@@ -120,8 +121,9 @@ jobs:
       - name: Generate Arduino Library
         run: |
           version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
+          echo "version=$version"
           rm -rf ~/.arduino15/packages/Infineon/hardware/*
-          ln -s /opt/XMC-for-Arduino/hardware/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/${{ env.version }}
+          ln -s /opt/XMC-for-Arduino/hardware/${version}/ ~/.arduino15/packages/Infineon/hardware/${version}
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
           xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
@@ -182,9 +184,6 @@ jobs:
       # export REPO=${{ needs.setup.outputs.repo }}
       - name: Set and check environment, install repos
         run: |
-          version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
-          rm -rf ~/.arduino15/packages/Infineon/hardware/*
-          ln -s /opt/XMC-for-Arduino/hardware/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/${{ env.version }}
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
           xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
@@ -211,7 +210,6 @@ jobs:
                 ${options}
         env:
           PLATFORMIO_CI_SRC: ${{ matrix.example }}
-
 
 
   #############################################################################
