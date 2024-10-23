@@ -310,7 +310,7 @@ jobs:
       - name: Flash
         run: |
           cd $HOME
-          python $HOME/.arduino15/packages/Infineon/hardware/${{ env.version }}/tools/xmc-flasher.py \
+          python $HOME/.arduino15/packages/Infineon/hardware/xmc/${{ env.version }}/tools/xmc-flasher.py \
                             upload \
                             -d ${{ env.devtype }} \
                             -p ${{ env.port }} \
