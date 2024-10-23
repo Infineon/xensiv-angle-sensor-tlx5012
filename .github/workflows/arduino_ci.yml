@@ -35,11 +35,11 @@ jobs:
       # the arduino board support packages can be updated automatically
       # the XMC board support package is only linked inside the self hosted runner, which allows
       # to use none official and beta versions
+      # arduino-cli core install "infineon:xmc"
       - name: Install/Update Arduino Platform
         run: |
           arduino-cli core update-index
           arduino-cli core install "arduino:avr"
-          arduino-cli core install "infineon:xmc"
 
       # Fetch variables and move them to the GITHUB_OUTPUT and fetch HIL information
       - id: startup
