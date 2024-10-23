@@ -122,8 +122,8 @@ jobs:
         run: |
           version=$(echo ${{ toJson(needs.setup.outputs.xfp) }} | jq ".\"hil\".\"version\"" -r --compact-output )
           echo "version=$version"
-          rm -rf ~/.arduino15/packages/Infineon/hardware/*
-          ln -s /opt/XMC-for-Arduino/hardware/${version}/ ~/.arduino15/packages/Infineon/hardware/${version}
+          rm -rf ~/.arduino15/packages/Infineon/hardware/xmc/*
+          ln -s /opt/XMC-for-Arduino/hardware/xnc/${version}/ ~/.arduino15/packages/Infineon/hardware/xnc/${version}
           mkdir -p "$HOME/Arduino/libraries"
           cd $GITHUB_WORKSPACE/
           xfp-dev arduino workspace-setup --path $HOME/Arduino/libraries
@@ -290,8 +290,8 @@ jobs:
         run: |
           export TMPDIR=$HOME/tmp
           mkdir -p $TMPDIR
-          rm -rf ~/.arduino15/packages/Infineon/hardware/*
-          ln -s /opt/XMC-for-Arduino/hardware/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/${{ env.version }}
+          rm -rf ~/.arduino15/packages/Infineon/hardware/xmc/*
+          ln -s /opt/XMC-for-Arduino/hardware/xmc/${{ env.version }}/ ~/.arduino15/packages/Infineon/hardware/xmc/${{ env.version }}
           mkdir -p "$HOME/Arduino/libraries"
           cd $HOME/Arduino/libraries/${{ env.project }}
           arduino-cli compile --clean --log --warnings all \
