@@ -9,7 +9,6 @@ on:
 jobs:
 
 
-
   #############################################################################
   # This action sets common variables for the flow and
   # identifies the examples to compile
@@ -79,7 +78,6 @@ jobs:
       serials: ${{ steps.startup.outputs.serials }}
       examples: ${{ steps.startup.outputs.examples }}
       xfp: ${{ steps.startup.outputs.xfp }}
-
 
   #############################################################################
   # The build job compiles the sample code for different boards
