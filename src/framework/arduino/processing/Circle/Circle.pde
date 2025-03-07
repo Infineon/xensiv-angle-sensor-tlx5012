@@ -11,6 +11,8 @@
  */
 import processing.serial.*;
 
+String portName = "COM12";
+
 int radius = 200;
 Serial myPort;
 String val;
@@ -23,7 +25,8 @@ void setup()
 {
   size(600, 600);
   f = createFont("Arial", 16, true);
-  String portName = Serial.list()[0];
+  //String portName = Serial.list()[1];
+  text(Serial.list()[1],10,10);
   myPort = new Serial(this, portName, 1000000);
   if (myPort.available() > 0)
   {

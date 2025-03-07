@@ -8,6 +8,11 @@
 
 import processing.serial.*;
 
+<<<<<<< HEAD
+String portName = "COM12";
+
+=======
+>>>>>>> 393649f853d2c62d3e7014b08549f3342bc65702
 class BorderLib
 {
   private Border border;
@@ -1006,7 +1011,11 @@ void setup ()
 
   game = new Game (8);
 
+<<<<<<< HEAD
+  // String portName = Serial.list()[0];
+=======
   String portName = Serial.list()[0];
+>>>>>>> 393649f853d2c62d3e7014b08549f3342bc65702
   String val = null;  
   myPort = new Serial(this, portName, 1000000);
   if (myPort.available() > 0)

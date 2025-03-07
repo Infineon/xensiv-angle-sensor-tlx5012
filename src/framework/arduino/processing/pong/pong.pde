@@ -7,6 +7,7 @@
 
 import processing.serial.*;
 
+String portName = "COM12";
 
 class Ball {
 
@@ -279,7 +280,7 @@ void setup() {
   textFont(scoreFont);
   ellipseMode(CENTER);
   //frameRate(50);
-  String portName = Serial.list()[0];
+  // String portName = Serial.list()[0];
   String val = null;  
   myPort = new Serial(this, portName, 1000000);
   if (myPort.available() > 0)
