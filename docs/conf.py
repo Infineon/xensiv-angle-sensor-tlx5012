@@ -30,10 +30,8 @@ extensions = [
 
     #'autoapi.extension',
     'sphinx.ext.autodoc',
-    'versionwarning.extension',
     'sphinxemoji.sphinxemoji',
     'sphinx_tabs.tabs',
-    'sphinx_copybutton',
     'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.todo',

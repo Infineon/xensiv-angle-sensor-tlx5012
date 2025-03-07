@@ -6,3 +6,4 @@ sphinxemoji>=0.1.8
 sphinx-tabs
 breathe>=4.13.0
 exhale
+myst-parser
