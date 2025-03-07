@@ -27,6 +27,8 @@ release = '2024'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
+
+    #'autoapi.extension',
     'sphinx.ext.autodoc',
     'versionwarning.extension',
     'sphinxemoji.sphinxemoji',
@@ -44,8 +46,7 @@ extensions = [
     'sphinx.ext.inheritance_diagram',
     'myst_parser',
     'breathe',
-#    'exhale'
-    
+    'exhale'
 ]
 
 autosectionlabel_prefix_document = True
@@ -53,10 +54,10 @@ autosectionlabel_prefix_document = True
 #    '.md': 'recommonmark.parser.CommonMarkParser',
 # }
 
-source_suffix = [
-    '.rst',
-    # '.md'
-]
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 suppress_warnings = ['autosectionlabel.*', 'epub.duplicated_toc_entry']
 
@@ -74,13 +75,17 @@ exhale_args = {
     "exhaleExecutesDoxygen": True,
     # "exhaleUseDoxyfile" : True,
     "exhaleDoxygenStdin":    textwrap.dedent('''
+        EXTRACT_ALL = YES
+        SOURCE_BROWSER = YES
+        EXTRACT_STATIC = YES
+        OPTIMIZE_OUTPUT_FOR_C  = YES
         INPUT            = ../src
         GENERATE_LATEX   = NO
         GENERATE_HTML    = YES
         GENERATE_XML     = YES
         RECURSIVE        = YES
         VERBATIM_HEADERS = NO
-        EXCLUDE          = ./../src/framework/raspberrypi/examples ./../src/framework/raspberrypi/examples_py ./../src/framework/arduino/examples ./../src/framework/arduino/README.md
+        EXCLUDE          = ./../src/framework/arduino/examples ./../src/framework/arduino/README.md ./../src/framework/wiced-43xxx/README.md
     '''),
 
     # Configure what not to show in the API index page
@@ -88,6 +93,8 @@ exhale_args = {
     "fullToctreeMaxDepth" : 4
     
 }
+
+#autoapi_dirs = ['./../src/']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -105,3 +112,5 @@ breathe_projects = {
 }
 breathe_default_project = "XENSIV TLx5012B Angle Sensor"
 breathe_default_members = ('members', 'undoc-members')
+
+html_css_files = ["custom.css"]
