@@ -1,11 +1,10 @@
-/*!
+/**
  * \file        TLE5012b.hpp
  * \name        TLE5012b.hpp - core library for the TLx5012B angle sensor family
  * \author      Infineon Technologies AG
  * \copyright   2019-2024 Infineon Technologies AG
  * \version     4.0.0
  * \brief       GMR-based angle sensor for angular position sensing in automotive applications
- * \ref         tle5012corelib
  *
  * SPDX-License-Identifier: MIT
  *
@@ -26,6 +25,9 @@ namespace tle5012
 {
 
 /**
+ * @brief 
+ * 
+ * @class TLE5012API
  * @addtogroup tle5012api
  *
  * @{
@@ -80,7 +82,7 @@ class Tle5012b
             */
             uint16_t fetch_Safety(uint16_t reg)
             {
-                CRC      = (reg & 0x7F);
+                CRC      = (reg & 0xFF);
                 RESP     = (reg & 0xF00) >> 8;
                 STAT_ANG = (reg & 0x1000) >> 12;
                 STAT_ACC = (reg & 0x2000) >> 13;
@@ -332,8 +334,7 @@ class Tle5012b
         errorTypes writeIntMode4(uint16_t dataToWrite);            //!< \brief write register offset 0x0E
         errorTypes writeTempCoeff(uint16_t dataToWrite);           //!< \brief write register offset 0x0F
 
-        safetyWord safetyStatus;
-        uint16_t safetyWord;                                       //!< the last fetched safety word
+        safetyWord safetyStatus;                                   //!< \brief safety word status
 
         /*!
         * Function reset the Sensor to fuse defaults
@@ -371,8 +372,6 @@ class Tle5012b
 
     protected:
 
-        uint16_t _command[2];                      //!< \brief  command write data [0] = command [1] = data to write
-        uint16_t _received[MAX_REGISTER_MEM];      //!< \brief fetched data from sensor with last word = safety word
         uint16_t _registers[CRC_NUM_REGISTERS+1];  //!< \brief keeps track of the values stored in the 8 _registers, for which the CRC is calculated
 
         /*!
@@ -401,8 +400,13 @@ class Tle5012b
         * that might have occurred by reading the register without a safety word.
         * In case the safety word sends an error, this function is
         * called so that the error bit is reset to 1.
+        * 
+        * For consistency we return an error status, but as this function is called
+        * to wave possible error flags and is not designed to check safety, we return
+        * a NO_ERROR status.
+        * @return CRC error type
         */
-        void resetSafety();
+        errorTypes resetSafety();
 
 };
 

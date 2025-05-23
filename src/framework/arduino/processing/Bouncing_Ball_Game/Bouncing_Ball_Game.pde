@@ -9,6 +9,8 @@ import processing.serial.*;
 
 boolean GameOver = false;
 
+String portName = "COM12";
+
 int maxNumberEnemy = 4;
 
 float[] xCoord = new float[maxNumberEnemy]; 
@@ -47,7 +49,7 @@ void setup()
 {
   size(600,600, P2D);
   f = createFont("Arial",16,true);
-  String portName = Serial.list()[0];
+  // String portName = Serial.list()[0];
   //frameRate(55);
   myPort = new Serial(this, portName, 1000000);
   if (myPort.available() > 0)

@@ -9,6 +9,9 @@ import processing.serial.*;
 
 int radius = 10;
 Serial myPort;
+
+String portName = "COM12";
+
 String val;
 PFont f;
 float floatVal = 0.0;
@@ -40,7 +43,7 @@ void setup()
 {
   size(600, 600);
   f = createFont("Arial", 16, true);
-  String portName = Serial.list()[0];
+  // String portName = Serial.list()[0];
   myPort = new Serial(this, portName, 9600);
   if (myPort.available() > 0)
   {
