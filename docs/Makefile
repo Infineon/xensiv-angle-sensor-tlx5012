@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Minimal makefile for Sphinx documentation
 #
 
@@ -19,7 +18,6 @@ help:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-=======
 ##################################################################################
 # documentation build files
 # - generates the html doxygen documentation
@@ -76,4 +74,3 @@ clean:
 	@$(RM) $(LIBRARY_NAME).pdf
 
 .PHONY: lib_doc clean
->>>>>>> 393649f853d2c62d3e7014b08549f3342bc65702
