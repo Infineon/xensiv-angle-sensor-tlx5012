@@ -63,7 +63,7 @@ Beside the predefined protocols, all `XENSIV™ TLx5012B`_ variants can be confi
 License
 =======
 
-Please find the license file for this library `here <https://github.com/Infineon/arduino-xensiv-tlx5012b-angle-sensor/main/LICENSE>`_.
+Please find the license file for this library `here <https://github.com/Infineon/xensiv-angle-sensor-tlx5012/blob/main/LICENSE>`_.
 
 .. toctree::
    :maxdepth: 3
@@ -125,8 +125,7 @@ Please find the license file for this library `here <https://github.com/Infineon
 
 .. _`XENSIV™ TLx5012B`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e1000_ms2go
 .. _`TLE5012B E1xxx 2GO Kits`: https://www.infineon.com/cms/en/product/promopages/sensors-2go/#angle-sensor-2go
-.. _`TLE5012B E1000 2GO Kit`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e1000_ms2go/
-.. _`TLI5012B E1000 2GO Kit`: https://www.infineon.com/cms/en/product/evaluation-boards/tli5012b_e1000_ms2go/
+.. _`TLE5012B E1000 2GO Kit`: https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO
 .. _`TLE5012B E5000 2GO Kit`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e5000_ms2go/
 .. _`TLE5012B E9000 2GO Kit`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e9000_ms2go/
 .. _`TLE5012B E1000`: https://www.infineon.com/cms/en/product/sensor/magnetic-sensors/magnetic-position-sensors/angle-sensors/tle5012b-e1000/

@@ -58,4 +58,4 @@ pin settings. The example shows the angle output from six `XENSIV™ TLx5012B`_ 
 
 .. _`TLE5012B manual`: https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b
 .. _`XMC4700 Relax Kit`: https://www.infineon.com/cms/en/product/evaluation-boards/kit_xmc47_relax_5v_ad_v1/?redirId=114289
-.. _`XENSIV™ TLx5012B`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e1000_ms2go
+.. _`XENSIV™ TLx5012B`: https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO

@@ -1,6 +1,6 @@
 # XENSIV™ TLx5012B Angle Sensor
 
-WiCED library of Infineon's highly sensitive [XENSIV™ TLx5012B](https://www.infineon.com/cms/en/product/sensor/magnetic-sensors/magnetic-position-sensors/angle-sensors) 360° magnetic angle sensor.
+WiCED library of Infineon's highly sensitive [XENSIV™ TLx5012B](https://www.infineon.com/products/sensor/magnetic-position-sensors/angle-sensors) 360° magnetic angle sensor.
 
 ### Suported Products
 
@@ -42,4 +42,4 @@ The complete documentation of the library as well as detailed information about 
 
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details.
