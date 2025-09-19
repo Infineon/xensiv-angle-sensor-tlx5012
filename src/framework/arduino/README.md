@@ -13,7 +13,8 @@ This library supports also all predefined communication variants IIF, PWM, SPC. 
 
 ### Supported Frameworks
 
-The library supports all Infineon XMC microcontroller and Arduino and Arduino compatible devices which can handle a 3Wire (SSC) SPI interface. Therefore have a look at the list of [compatible and tested kits](href="https://xensiv-angle-sensor-tlx5012.readthedocs.io/en/latest/) as well as at the [Porting Guide](href="https://xensiv-angle-sensor-tlx5012.readthedocs.io/en/latest/). You are maybe able to get it running with the right SPI pin setting and a sufficient resistor setup.
+The library supports all Infineon XMC microcontroller and Arduino and Arduino compatible devices which can handle a 3Wire (SSC) SPI interface. Therefore have a look at the list of [compatible and tested kits](<a href="https://xensiv-angle-sensor-tlx5012.readthedocs.io/en/latest/">XENSIV TLx5012 Dokumentation</a>) as well as at the [Porting Guide](<a href="https://xensiv-angle-sensor-tlx5012.readthedocs.io/en/latest/">XENSIV TLx5012 Dokumentation</a>
+). You are maybe able to get it running with the right SPI pin setting and a sufficient resistor setup.
 
 
 ## Summary
