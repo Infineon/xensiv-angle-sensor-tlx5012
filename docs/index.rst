@@ -123,7 +123,7 @@ Please find the license file for this library `here <https://github.com/Infineon
    links
 
 
-.. _`XENSIV™ TLx5012B`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e1000_ms2go
+.. _`XENSIV™ TLx5012B`: hhttps://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO
 .. _`TLE5012B E1xxx 2GO Kits`: https://www.infineon.com/cms/en/product/promopages/sensors-2go/#angle-sensor-2go
 .. _`TLE5012B E1000 2GO Kit`: https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO
 .. _`TLE5012B E5000 2GO Kit`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e5000_ms2go/
