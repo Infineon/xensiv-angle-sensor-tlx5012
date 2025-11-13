@@ -63,5 +63,5 @@ The `XENSIV™ TLx5012B`_ sensors are using Infineon's PRO-SIL™ features which
 * Two independent active interfaces possible.
 * Overvoltage and undervoltage detection.
  
-.. _`XENSIV™ TLx5012B`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e1000_ms2go
+.. _`XENSIV™ TLx5012B`: https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO
 .. _`TLE5012B manual`: https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b

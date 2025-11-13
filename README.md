@@ -1,6 +1,8 @@
 # XENSIV™ TLx5012B Angle Sensor
 
-Library of Infineon's highly sensitive [XENSIV™ TLx5012B](https://www.infineon.com/cms/en/product/sensor/magnetic-sensors/magnetic-position-sensors/angle-sensors) 360° magnetic angle sensor.
+[![Check links](https://github.com/Infineon/xensiv-angle-sensor-tlx5012/actions/workflows/check_links.yml/badge.svg)](https://github.com/Infineon/xensiv-angle-sensor-tlx5012/actions/workflows/check_links.yml)
+
+Library of Infineon's highly sensitive [XENSIV™ TLx5012B](https://www.infineon.com/products/sensor/magnetic-position-sensors/angle-sensors) 360° magnetic angle sensor.
 
 ### Suported Products
 

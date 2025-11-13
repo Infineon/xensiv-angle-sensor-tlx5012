@@ -5,7 +5,7 @@ Related Products
 * `XMC1400 Arduino <https://www.infineon.com/cms/en/product/evaluation-boards/kit_xmc1400_arduino/>`__
 * `XMC1400 Kit2Go <https://www.infineon.com/cms/en/product/evaluation-boards/kit_xmc14_2go/>`__
 * `XMC4700 Relax Kit <https://www.infineon.com/cms/en/product/evaluation-boards/kit_xmc47_relax_v1/>`__
-* `GUI for Angle Sensor 2GO <https://www.infineon.com/dgdl/Infineon-Software-Magnetic-Angle-Sensor-2Go-SW-v01_01-SW-v01_01-EN.zip?fileId=5546d462675a69720167799771c5519e>`__
+* `GUI for Angle Sensor 2GO https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO>`__
 * `Arduino IDE <https://www.arduino.cc/en/software>`__
 * `PlatformIO <https://platformio.org/>`__
 
@@ -38,9 +38,9 @@ More
 ----
 
 * `Infineon for Makers <https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/>`__
-* `Infineon Microcontroller <https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/microcontroller-boards/>`__
+* `Infineon Microcontroller <https://www.infineon.com/infineon-for-makers>`__
 * `Infineon XENSIV™ - Sensor 2GO kits <https://www.infineon.com/cms/en/product/promopages/sensors-2go/#shields2go-myiot>`__
-* `Infineon Magnetic Sensor Kits <https://www.infineon.com/cms/en/product/promopages/sensors-2go>`__
+* `Infineon Magnetic Sensor Kits <https://www.infineon.com/product-information/sensors-2go>`__
 * `Arduino <https://www.arduino.cc/>`__
 * `PlatformIO <https://platformio.org/>`__
 

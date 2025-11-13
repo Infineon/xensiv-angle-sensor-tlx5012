@@ -69,5 +69,5 @@ To run this games the needed Arduino example has to be uploaded to the `TLE5012B
 
 
 .. _`Processing`: https://processing.org/
-.. _`XENSIV™ TLx5012B`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e1000_ms2go
+.. _`XENSIV™ TLx5012B`: https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO
 .. _`TLE5012B E1xxx 2GO Kits`: https://www.infineon.com/cms/en/product/promopages/sensors-2go/#angle-sensor-2go

@@ -102,6 +102,6 @@ and officially supported evaluation kits.
 
 These instances are available in the "src/framework/sample_fmwk/wrapper/zzz-platf-xxx.hpp/cpp" source files.
 
-.. _`XENSIV™ TLx5012B`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e1000_ms2go
+.. _`XENSIV™ TLx5012B`: https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO
 
 

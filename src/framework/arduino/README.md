@@ -1,6 +1,6 @@
 # XENSIV™ TLx5012B Angle Sensor
 
-Arduino library of Infineon's highly sensitive [XENSIV™ TLx5012B](https://www.infineon.com/cms/en/product/sensor/magnetic-sensors/magnetic-position-sensors/angle-sensors) 360° magnetic angle sensor.
+Arduino library of Infineon's highly sensitive [XENSIV™ TLx5012B](https://www.infineon.com/products/sensor/magnetic-position-sensors/angle-sensors) 360° magnetic angle sensor.
 
 ### Suported Products
 
@@ -13,11 +13,12 @@ This library supports also all predefined communication variants IIF, PWM, SPC. 
 
 ### Supported Frameworks
 
-The library supports all Infineon XMC microcontroller and Arduino and Arduino compatible devices which can handle a 3Wire (SSC) SPI interface. Therefore have a look at the list of [compatible and tested kits](href="https://xensiv-angle-sensor-tlx5012.readthedocs.io/en/latest/) as well as at the [Porting Guide](href="https://xensiv-angle-sensor-tlx5012.readthedocs.io/en/latest/). You are maybe able to get it running with the right SPI pin setting and a sufficient resistor setup.
+The library supports all Infineon XMC microcontroller and Arduino and Arduino compatible devices which can handle a 3Wire (SSC) SPI interface. Therefore have a look at the list of [compatible and tested kits](<a href="https://xensiv-angle-sensor-tlx5012.readthedocs.io/en/latest/">XENSIV TLx5012 Dokumentation</a>) as well as at the [Porting Guide](<a href="https://xensiv-angle-sensor-tlx5012.readthedocs.io/en/latest/">XENSIV TLx5012 Dokumentation</a>
+). You are maybe able to get it running with the right SPI pin setting and a sufficient resistor setup.
 
 
 ## Summary
-The [XENSIV™ TLx5012B](https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e1000_ms2go/) is a 360° angle sensor that detects the orientation of a magnetic field. This is achieved by measuring sine and cosine angle components with monolithic integrated Giant Magneto Resistance (iGMR) elements. These raw signals (sine and cosine) are digitally processed internally to calculate the angle orientation of the magnetic field (magnet). The XENSIV™ TLx5012B is a pre-calibrated sensor. The calibration parameters are stored in laser fuses. At start-up the values of the fuses are written into flip-flops, where these values can be changed by the application-specific parameters. Further precision of the angle measurement over a wide temperature range and a long lifetime can be improved by enabling an optional internal auto calibration algorithm. Data communications are accomplished with a bi-directional Synchronous Serial Communication (SSC) that is SPI-compatible. The sensor configuration is stored in registers, which are accessible by the SSC interface. Additionally four other interfaces are available with the XENSIV™ TLx5012B: Pulse-Width-Modulation (PWM) Protocol, Short-PWM-Code (SPC) Protocol, Hall Switch Mode (HSM) and Incremental Interface (IIF). These interfaces can be used in parallel with SSC or alone. Pre-configured sensor derivate with different interface settings are available.
+The [XENSIV™ TLx5012B](https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO) is a 360° angle sensor that detects the orientation of a magnetic field. This is achieved by measuring sine and cosine angle components with monolithic integrated Giant Magneto Resistance (iGMR) elements. These raw signals (sine and cosine) are digitally processed internally to calculate the angle orientation of the magnetic field (magnet). The XENSIV™ TLx5012B is a pre-calibrated sensor. The calibration parameters are stored in laser fuses. At start-up the values of the fuses are written into flip-flops, where these values can be changed by the application-specific parameters. Further precision of the angle measurement over a wide temperature range and a long lifetime can be improved by enabling an optional internal auto calibration algorithm. Data communications are accomplished with a bi-directional Synchronous Serial Communication (SSC) that is SPI-compatible. The sensor configuration is stored in registers, which are accessible by the SSC interface. Additionally four other interfaces are available with the XENSIV™ TLx5012B: Pulse-Width-Modulation (PWM) Protocol, Short-PWM-Code (SPC) Protocol, Hall Switch Mode (HSM) and Incremental Interface (IIF). These interfaces can be used in parallel with SSC or alone. Pre-configured sensor derivate with different interface settings are available.
 
 ## Key Features and Benefits
 * Giant Magneto Resistance (GMR)-based principle
@@ -41,4 +42,4 @@ The complete documentation of the library as well as detailed information about 
 
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details.
