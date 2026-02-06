@@ -51,7 +51,7 @@ namespace tle5012
 #elif defined(ARDUINO_ARCH_SAMD)
     // This part is yet to be implemented
     class SPIClass3W : public SPIClassSAMD {
-#elif defined(ARDUINO_ARCH_XMC)
+#elif defined(ARDUINO_ARCH_XMC)      //xmc arch name
     // XMC platform - inherit from XMCSPIClass
     class SPIClass3W : public XMCSPIClass {
 #else
