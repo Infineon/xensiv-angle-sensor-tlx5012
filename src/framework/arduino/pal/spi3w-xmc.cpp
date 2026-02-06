@@ -28,7 +28,7 @@ using namespace tle5012;
  * @brief Construct a new SPIClass3W::SPIClass3W object
  *
  */
-SPIClass3W::SPIClass3W(uint8_t spiNum):XMCSPIClass()
+SPIClass3W::SPIClass3W(uint8_t spiNum):XMCSPIClass()  //Updated XMC class name
 {
     this->mCS = SS;
     this->mMISO = MISO;
