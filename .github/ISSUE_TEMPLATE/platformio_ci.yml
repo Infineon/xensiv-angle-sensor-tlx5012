@@ -51,6 +51,6 @@ jobs:
 
     - name: Run PlatformIO
       run: |
-        pio ci --lib="." --board=xmc1100_xmc2go --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno --project-option="lib_deps=Wire"
+        pio ci --lib="." --board=kit_xmc_2go_xmc1100_v1 --board=kit_xmc11_boot_001 --board=kit_xmc47_relax --board=uno --project-option="lib_deps=Wire"
       env:
         PLATFORMIO_CI_SRC: ${{ matrix.example }}

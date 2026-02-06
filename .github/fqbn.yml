@@ -2,7 +2,7 @@ ard:
   fqbn: "--fqbn=arduino:avr:uno --fqbn=Infineon:xmc:kit_xmc_2go_xmc1100_v1 --fqbn=Infineon:xmc:kit_xmc11_boot_001 --fqbn=Infineon:xmc:kit_xmc13_boot_001 --fqbn=nfineon:xmc:kit_xmc14_2go --fqbn=Infineon:xmc:kit_xmc1400_arduino --fqbn=Infineon:xmc:XMC4200_Platform2GO --fqbn=Infineon:xmc:XMC4400_Platform2GO --fqbn=Infineon:xmc:kit_xmc47_relax"
 
 pio:
-  boards: "--board=uno --board=kit_xmc_2go_xmc1100_v1 --board=xmc1100_boot_kit --board=kit_xmc47_relax"
+  boards: "--board=uno --board=kit_xmc_2go_xmc1100_v1 --board=kit_xmc11_boot_001 --board=kit_xmc47_relax"
   options: "--project-option=\"lib_deps=Wire\""
 
 hil:
