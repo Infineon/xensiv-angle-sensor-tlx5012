@@ -59,7 +59,7 @@ namespace tle5012
 #endif
 
     public:
-        #if defined(ARDUINO_ARCH_XMC)
+        #if defined(ARDUINO_ARCH_XMC)  //xmc arch name
             #define SPI3W_INO SPI3W_XMC
         #elif defined(ESP32) && (ALTERNATIVE_PINS == 3)
             #define SPI3W_INO SPI3W_ESP32
