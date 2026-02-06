@@ -73,7 +73,7 @@ Tle5012Ino::Tle5012Ino(SPIClass3W *bus, uint8_t csPin, uint8_t misoPin, uint8_t 
  */
 errorTypes Tle5012Ino::begin(void)
 {
-    #if defined(XMC1100_XMC2GO) || defined(XMC1100_H_BRIDGE2GO)
+    #if defined(KIT_XMC_2GO_XMC1100_V1) || defined(XMC1100_H_BRIDGE2GO)
         #undef PIN_SPI_EN
         #define PIN_SPI_EN    8           /*!< TLE5012 Sensor2Go Kit has a switch on/off pin */
     #endif

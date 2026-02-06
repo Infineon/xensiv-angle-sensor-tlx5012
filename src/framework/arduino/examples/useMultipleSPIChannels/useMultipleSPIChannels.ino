@@ -28,7 +28,7 @@
 
 using namespace tle5012;
 
-#if !defined(XMC4700_Relax_Kit)
+#if !defined(KIT_XMC47_RELAX)
 
  void setup()
  {
