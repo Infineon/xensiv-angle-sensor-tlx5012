@@ -63,4 +63,4 @@ The `XENSIV™ TLx5012B`_ sensor is using Infineon's PRO-SIL™ features which a
  
 
 .. _`XENSIV™ TLx5012B`: https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO
-.. _`TLE5012B manual`: https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b
+.. _`TLE5012B manual`: https://www.infineon.com/assets/row/public/documents/24/44/infineon-tle5012b-usermanual-en.pdf

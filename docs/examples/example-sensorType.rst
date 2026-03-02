@@ -74,4 +74,4 @@ and for all interfaces the push-pull or open-drain setting are printed.
     :align: center
 |
 
-.. _`TLE5012B manual`: https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b
+.. _`TLE5012B manual`: https://www.infineon.com/assets/row/public/documents/24/44/infineon-tle5012b-usermanual-en.pdf

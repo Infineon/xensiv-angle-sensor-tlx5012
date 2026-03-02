@@ -1,7 +1,7 @@
 <!-- Interfaces and variants -->
 
 The TLEx501B sensor is available in three different interface configurations: IIF, PWM, and SPC/HSM. All three also include the SSC interface.
-Only with the SSC communication protocol all registers of the DSP are available (see [TLx5012B manual](https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b)
+Only with the SSC communication protocol all registers of the DSP are available (see [TLx5012B manual](https://www.infineon.com/assets/row/public/documents/24/44/infineon-tle5012b-usermanual-en.pdf)
 for further information). The purpose of the interfaces is to support a wide variety of different tasks, from ultra low power use replacing ordinary Hall-effect switches up to high performance use cases. This flexibility allows us to utilize the full range of functions, even if we don't have the perfectly matching sensor type.
 
 The following table summarizes the settings for each interface configuration:
