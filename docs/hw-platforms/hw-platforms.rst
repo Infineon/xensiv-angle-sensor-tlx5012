@@ -213,6 +213,6 @@ and to keep the footprint as small as possible. Therefore you can attach this bo
 .. _`TLE5012B E1000 2GO Kit`: https://www.infineon.com/evaluation-board/TLE5012B-E1000-MS2GO
 .. _`TLE5012B E5000 2GO Kit`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e5000_ms2go/
 .. _`TLE5012B E9000 2GO Kit`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e9000_ms2go/
-.. _`TLE5012B manual`: https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b
+.. _`TLE5012B manual`: https://www.infineon.com/assets/row/public/documents/24/44/infineon-tle5012b-usermanual-en.pdf
 .. _`TLE5012B DSO-8-16 bulk chips`: https://www.infineon.com/cms/en/product/sensor/magnetic-sensors/magnetic-position-sensors/angle-sensors/tle5012b-e1000/
 .. _`TLE5012B E1xxx breakout boards`: https://www.infineon.com/cms/en/product/promopages/sensors-2go/#angle-sensor-2go

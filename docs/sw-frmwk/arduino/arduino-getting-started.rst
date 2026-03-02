@@ -74,7 +74,7 @@ For a specific description and overview of all examples please refer to :ref:`Ar
 .. _`TLI5012B E1000 2GO Kit`: https://www.infineon.com/cms/en/product/evaluation-boards/tli5012b_e1000_ms2go/
 .. _`TLE5012B E5000 2GO Kits`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e5000_ms2go/
 .. _`TLE5012B E9000 2GO Kits`: https://www.infineon.com/cms/en/product/evaluation-boards/tle5012b_e9000_ms2go/
-.. _`TLE5012B manual`: https://www.infineon.com/dgdl/Infineon-Angle_Sensor_TLE5012B-UM-v01_02-en-UM-v01_02-EN.pdf?fileId=5546d46146d18cb40146ec2eeae4633b
+.. _`TLE5012B manual`: https://www.infineon.com/assets/row/public/documents/24/44/infineon-tle5012b-usermanual-en.pdf
 .. _`Arduino IDE`: https://www.arduino.cc/en/software
 .. _`XMC1100 Boot Kit`: https://www.infineon.com/evaluation-board/KIT-XMC11-BOOT-001
 .. _`XMC1100 2Go`: https://www.infineon.com/dgdl/Board_Users_Manual_XMC_2Go_Kit_with_XMC1100_R1.0.pdf?fileId=db3a3043444ee5dc014453d6c75078c6
