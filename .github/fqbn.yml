@@ -1,14 +1,14 @@
 ard:
-  fqbn: "--fqbn=arduino:avr:uno --fqbn=Infineon:xmc:XMC1100_XMC2GO --fqbn=Infineon:xmc:XMC1100_Boot_Kit --fqbn=Infineon:xmc:XMC1300_Boot_Kit --fqbn=Infineon:xmc:XMC1400_XMC2GO --fqbn=Infineon:xmc:XMC1400_Arduino_Kit --fqbn=Infineon:xmc:XMC4200_Platform2GO --fqbn=Infineon:xmc:XMC4400_Platform2GO --fqbn=Infineon:xmc:XMC4700_Relax_Kit"
+  fqbn: "--fqbn=arduino:avr:uno --fqbn=Infineon:xmc:kit_xmc_2go_xmc1100_v1 --fqbn=Infineon:xmc:kit_xmc11_boot_001 --fqbn=Infineon:xmc:kit_xmc13_boot_001 --fqbn=nfineon:xmc:kit_xmc14_2go --fqbn=Infineon:xmc:kit_xmc1400_arduino --fqbn=Infineon:xmc:XMC4200_Platform2GO --fqbn=Infineon:xmc:XMC4400_Platform2GO --fqbn=Infineon:xmc:kit_xmc47_relax"
 
 pio:
-  boards: "--board=uno --board=xmc1100_xmc2go --board=xmc1100_boot_kit --board=xmc4700_relax_kit"
+  boards: "--board=uno --board=xmc1100_xmc2go --board=xmc1100_boot_kit  --board=xmc4700_relax_kit"
   options: "--project-option=\"lib_deps=Wire\""
 
 hil:
-  fqbn:         Infineon:xmc:XMC1100_XMC2GO
+  fqbn:         Infineon:xmc:kit_xmc_2go_xmc1100_v1
   example:      "examples/readAngleTest"
   baud:         9600
   timeout:      10
-  version:      3.4.1-latest
+  version:      4.0.1
 
